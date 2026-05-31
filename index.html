@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EONET Management System</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        <i class="fas fa-wifi"></i>
+        <h2>EONET</h2>
+        <p>Management System</p>
+    </div>
+
+    <ul>
+
+        <li class="menu active"
+        onclick="showPage('pelanggan',this)">
+            <i class="fas fa-users"></i>
+            Data Pelanggan
+        </li>
+
+        <li class="menu"
+        onclick="showPage('pemasangan',this)">
+            <i class="fas fa-house-signal"></i>
+            Pemasangan
+        </li>
+
+        <li class="menu"
+        onclick="showPage('teknisi',this)">
+            <i class="fas fa-user-hard-hat"></i>
+            Teknisi
+        </li>
+
+        <li class="menu"
+        onclick="showPage('helpdesk',this)">
+            <i class="fas fa-headset"></i>
+            Helpdesk
+        </li>
+
+        <li class="menu"
+        onclick="showPage('gudang',this)">
+            <i class="fas fa-boxes-stacked"></i>
+            Gudang
+        </li>
+
+        <li class="menu"
+        onclick="showPage('riwayat',this)">
+            <i class="fas fa-folder-open"></i>
+            Riwayat
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>EONET MANAGEMENT SYSTEM</h1>
+
+        <button id="darkModeBtn">
+            🌙 Dark Mode
+        </button>
+
+    </div>
+
+    <!-- ====================== -->
+    <!-- DATA PELANGGAN -->
+    <!-- ====================== -->
+
+    <section
+    id="pelanggan"
+    class="page active-page">
+
+        <div class="section-header">
+
+            <h2>Data Pelanggan</h2>
+
+            <div>
+
+                <input
+                type="text"
+                id="searchPelanggan"
+                placeholder="Cari pelanggan...">
+
+                <button onclick="openTambahPelanggan()">
+                    Tambah Pelanggan
+                </button>
+
+            </div>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nama</th>
+
+                    <th>No WA</th>
+
+                    <th>Paket</th>
+
+                    <th>Alamat</th>
+
+                    <th>Status</th>
+
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="pelangganBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ====================== -->
+    <!-- PEMASANGAN -->
+    <!-- ====================== -->
+
+    <section
+    id="pemasangan"
+    class="page">
+
+        <div class="section-header">
+
+            <h2>Data Pemasangan</h2>
+
+            <button onclick="openTambahPemasangan()">
+                Tambah Calon Pelanggan
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nama</th>
+
+                    <th>No WA</th>
+
+                    <th>Lokasi</th>
+
+                    <th>Google Maps</th>
+
+                    <th>Paket</th>
+
+                    <th>Status</th>
+
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="pemasanganBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ====================== -->
+    <!-- TEKNISI -->
+    <!-- ====================== -->
+
+    <section
+    id="teknisi"
+    class="page">
+
+        <div class="section-header">
+
+            <h2>Jadwal Teknisi</h2>
+
+            <button onclick="openTambahTeknisi()">
+                Tambah Jadwal
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nama Pelanggan</th>
+
+                    <th>Teknisi</th>
+
+                    <th>Tanggal</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="teknisiBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+      <!-- ====================== -->
+    <!-- HELPDESK -->
+    <!-- ====================== -->
+
+    <section
+    id="helpdesk"
+    class="page">
+
+        <div class="section-header">
+
+            <h2>Helpdesk Tiket</h2>
+
+            <button onclick="openTambahTiket()">
+                Tambah Tiket
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>No Tiket</th>
+
+                    <th>Pelanggan</th>
+
+                    <th>Keluhan</th>
+
+                    <th>Status</th>
+
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tiketBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ====================== -->
+    <!-- GUDANG -->
+    <!-- ====================== -->
+
+    <section
+    id="gudang"
+    class="page">
+
+        <div class="section-header">
+
+            <h2>Stok Gudang</h2>
+
+            <button onclick="tambahBarang()">
+                Tambah Barang
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nama Barang</th>
+
+                    <th>Stok</th>
+
+                    <th>Satuan</th>
+
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="gudangBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ====================== -->
+    <!-- RIWAYAT -->
+    <!-- ====================== -->
+
+    <section
+    id="riwayat"
+    class="page">
+
+        <div class="section-header">
+
+            <h2>Riwayat Selesai</h2>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Tipe</th>
+
+                    <th>Nama</th>
+
+                    <th>Keterangan</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="riwayatBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</div>
+
+<!-- ====================== -->
+<!-- MODAL TAMBAH PELANGGAN -->
+<!-- ====================== -->
+
+<div
+class="modal"
+id="modalPelanggan">
+
+    <div class="modal-content">
+
+        <h2>Tambah Pelanggan</h2>
+
+        <input
+        type="text"
+        id="namaPelanggan"
+        placeholder="Nama Pelanggan">
+
+        <input
+        type="text"
+        id="waPelanggan"
+        placeholder="Nomor WhatsApp">
+
+        <input
+        type="text"
+        id="paketPelanggan"
+        placeholder="Paket Internet">
+
+        <input
+        type="text"
+        id="alamatPelanggan"
+        placeholder="Alamat">
+
+        <div class="modal-btn">
+
+            <button onclick="simpanPelanggan()">
+                Simpan
+            </button>
+
+            <button
+            class="close-btn"
+            onclick="closeModalPelanggan()">
+                Batal
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ====================== -->
+<!-- MODAL PEMASANGAN -->
+<!-- ====================== -->
+
+<div
+class="modal"
+id="modalPemasangan">
+
+    <div class="modal-content">
+
+        <h2>Tambah Calon Pelanggan</h2>
+
+        <input
+        type="text"
+        id="namaPemasangan"
+        placeholder="Nama Pelanggan">
+
+        <input
+        type="text"
+        id="waPemasangan"
+        placeholder="Nomor WhatsApp">
+
+        <input
+        type="text"
+        id="lokasiPemasangan"
+        placeholder="Lokasi">
+
+        <input
+        type="text"
+        id="mapsPemasangan"
+        placeholder="Link Google Maps">
+
+        <input
+        type="text"
+        id="paketPemasangan"
+        placeholder="Paket Internet">
+
+        <div class="modal-btn">
+
+            <button onclick="simpanPemasangan()">
+                Simpan
+            </button>
+
+            <button
+            class="close-btn"
+            onclick="closeModalPemasangan()">
+                Batal
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ====================== -->
+<!-- MODAL TIKET -->
+<!-- ====================== -->
+
+<div
+class="modal"
+id="modalTiket">
+
+    <div class="modal-content">
+
+        <h2>Buat Tiket Helpdesk</h2>
+
+        <input
+        type="text"
+        id="namaTiket"
+        placeholder="Nama Pelanggan">
+
+        <textarea
+        id="keluhanTiket"
+        placeholder="Keluhan Pelanggan"></textarea>
+
+        <div class="modal-btn">
+
+            <button onclick="simpanTiket()">
+                Simpan
+            </button>
+
+            <button
+            class="close-btn"
+            onclick="closeModalTiket()">
+                Batal
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ====================== -->
+<!-- TOAST -->
+<!-- ====================== -->
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

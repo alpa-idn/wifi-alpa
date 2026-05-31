@@ -1,0 +1,396 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+    display:flex;
+    min-height:100vh;
+}
+
+/* ======================
+   SIDEBAR
+====================== */
+
+.sidebar{
+    width:260px;
+    background:linear-gradient(180deg,#4f46e5,#312e81);
+    color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    padding:20px;
+    overflow-y:auto;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.logo i{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.logo h2{
+    margin-bottom:5px;
+}
+
+.logo p{
+    font-size:13px;
+    opacity:.8;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:14px;
+    margin-bottom:10px;
+    border-radius:12px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.sidebar li:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.sidebar li.active{
+    background:white;
+    color:#4f46e5;
+    font-weight:bold;
+}
+
+/* ======================
+   MAIN
+====================== */
+
+.main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:25px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.topbar h1{
+    font-size:26px;
+    color:#222;
+}
+
+#darkModeBtn{
+    background:#4f46e5;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* ======================
+   PAGE
+====================== */
+
+.page{
+    display:none;
+}
+
+.active-page{
+    display:block;
+}
+
+/* ======================
+   SECTION HEADER
+====================== */
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.section-header h2{
+    color:#222;
+}
+
+.section-header button{
+    background:#4f46e5;
+    color:white;
+    border:none;
+    padding:10px 16px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.section-header input{
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    min-width:240px;
+}
+
+/* ======================
+   TABLE
+====================== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+thead{
+    background:#4f46e5;
+    color:white;
+}
+
+th{
+    padding:14px;
+    text-align:left;
+}
+
+td{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f8f9ff;
+}
+
+/* ======================
+   BUTTONS
+====================== */
+
+.btn-edit{
+    background:#f59e0b;
+    color:white;
+    border:none;
+    padding:7px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.btn-delete{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:7px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ======================
+   STATUS BADGE
+====================== */
+
+.status-open{
+    background:#ef4444;
+    color:white;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.status-proses{
+    background:#f59e0b;
+    color:white;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.status-done{
+    background:#22c55e;
+    color:white;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* ======================
+   SELECT STATUS
+====================== */
+
+select{
+    padding:7px;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+/* ======================
+   MODAL
+====================== */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.modal-content{
+    background:white;
+    width:420px;
+    max-width:95%;
+    padding:22px;
+    border-radius:15px;
+}
+
+.modal-content h2{
+    margin-bottom:15px;
+}
+
+.modal-content input,
+.modal-content textarea{
+    width:100%;
+    padding:10px;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.modal-content textarea{
+    height:110px;
+    resize:none;
+}
+
+.modal-btn{
+    display:flex;
+    gap:10px;
+}
+
+.modal-btn button{
+    flex:1;
+    padding:11px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    background:#4f46e5;
+}
+
+.close-btn{
+    background:#ef4444 !important;
+}
+
+/* ======================
+   TOAST
+====================== */
+
+#toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#22c55e;
+    color:white;
+    padding:14px 18px;
+    border-radius:10px;
+    display:none;
+    z-index:9999;
+}
+
+/* ======================
+   DARK MODE
+====================== */
+
+.dark-mode{
+    background:#0f172a;
+}
+
+.dark-mode .main{
+    background:#0f172a;
+}
+
+.dark-mode .topbar h1,
+.dark-mode .section-header h2{
+    color:white;
+}
+
+.dark-mode table,
+.dark-mode .modal-content{
+    background:#1f2937;
+    color:white;
+}
+
+.dark-mode td{
+    border-color:#374151;
+}
+
+.dark-mode tr:hover{
+    background:#2b3545;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select{
+    background:#374151;
+    color:white;
+    border:none;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+
+@media(max-width:900px){
+
+    body{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        position:relative;
+        height:auto;
+    }
+
+    .main{
+        width:100%;
+        margin-left:0;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .section-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+
+    .section-header input{
+        width:100%;
+    }
+}
